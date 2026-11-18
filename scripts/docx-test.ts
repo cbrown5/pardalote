@@ -1,0 +1,11 @@
+import { chromium } from 'playwright-core';
+const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', args: ['--no-sandbox'] });
+const p = await b.newPage();
+const errs: string[] = [];
+p.on('console', (m) => { if (m.type() === 'error') errs.push(m.text()); });
+await p.goto('http://localhost:4173/');
+await p.setInputFiles('#file', 'out/test.docx');
+await p.waitForSelector('text=Loaded test.docx');
+console.log(await p.inputValue('#text'));
+console.log('stats:', await p.textContent('#text-stats'), 'errors:', errs);
+await b.close();
