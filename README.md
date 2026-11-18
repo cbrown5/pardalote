@@ -62,3 +62,7 @@ All model text reaches the page as text nodes; nothing is inserted as HTML.
 - Claude Sonnet 5.5 on the 534-word sample in `public/sample.md`: 14–20 findings per mode, every quote anchored, about $0.06–0.09 per run, 16–40 seconds.
 - Headless Chrome: key vault create/unlock/wrong passphrase, all three modes, popovers, aim threads, exports, `.docx` import, reload; no CSP violations.
 - OpenAI and OpenRouter calls are implemented but were not run live (no keys for them were available).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
